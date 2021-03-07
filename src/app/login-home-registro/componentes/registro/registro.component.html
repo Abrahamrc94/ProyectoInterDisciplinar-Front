@@ -4,67 +4,59 @@
             <h2>Introduce tus datos</h2>
         </div>
         <div class="card-content">
+            <form [formGroup]="signUpForm"> 
+
                 <div class="campo">
-                    <label for="username"><b>Nombre de usuario</b></label>
-                    <input type="text" placeholder="Nombre de usuario" name="username" formControlName="username">
-                    <ng-container *ngIf="signUpForm.controls.username.errors != undefined">
-                        <div class="errorEnValidacion" *ngIf="signUpForm.controls.username.errors.required">Este campo
+                    <label for="name"><b>Nombre</b></label>
+                    <input type="text" placeholder="Nombre" name="name" formControlName="name">
+                    <ng-container *ngIf="signUpForm.controls.name.errors != undefined">
+                        <div class="errorEnValidacion" *ngIf="signUpForm.controls.name.errors.required">Este campo
                             no puede estar vacio</div>
-                        <div class="errorEnValidacion" *ngIf="signUpForm.controls.username.errors.minlength">El nombre
-                            de usuario debe contener al menos 4 caracteres</div>
-                    </ng-container>
-                </div>
-                <div class="campo">
-                    <label for="pass"><b>Contraseña</b></label>
-                    <input type="password" placeholder="Contraseña" name="pass" formControlName="pass">
-                    <ng-container *ngIf="signUpForm.controls.pass.errors != undefined">
-                        <div class="errorEnValidacion" *ngIf="signUpForm.controls.pass.errors.required">Este campo no
-                            puede estar vacio</div>
-                        <div class="errorEnValidacion" *ngIf="signUpForm.controls.pass.errors.minlength">La contraseña
-                            debe contener al menos 6 caracteres</div>
-                        <div class="errorEnValidacion" *ngIf="signUpForm.controls.pass.errors.pattern">La contraseña
-                            debe contener mayúsculas y minúsculas</div>
-                    </ng-container>
-                </div>
-                <div class="campo">
-                    <label for="name"><b>Nombre completo</b></label>
-                    <input type="text" placeholder="Nombre completo" name="name" formControlName="nombre">
-                    <ng-container *ngIf="signUpForm.controls.nombre.errors != undefined">
-                        <div class="errorEnValidacion" *ngIf="signUpForm.controls.nombre.errors.required">Este campo
-                            no puede estar vacio</div>
-                    </ng-container>
-                </div>
-                <div class="campo">
-                    <label for="birthdate"><b>Fecha de nacimiento</b></label>
-                    <input type="text" placeholder="dd/mm/yyyy" name="birthdate" formControlName="fechaNacimiento">
-                    <ng-container *ngIf="signUpForm.controls.fechaNacimiento.errors != undefined">
-                        <div class="errorEnValidacion" *ngIf="signUpForm.controls.fechaNacimiento.errors.required">Este campo no
-                            puede estar vacio</div>
-                        <div class="errorEnValidacion" *ngIf="signUpForm.controls.fechaNacimiento.errors.pattern">La fecha debe
-                            seguir el formato dd/mm/yyyy</div>
-                    </ng-container>
-                </div>
-                <div class="campo">
-                    <label for="nacionalidad"><b>Nacionalidad</b></label>
-                    <select name="nacionalidad" formControlName="nacionalidad">
-                        <option *ngFor="let nacionalidad of nacionalidades" [value]="nacionalidad.id">
-                            {{nacionalidad.descripcion}}
-                        </option>
-                    </select>
-                </div>
-                <div class="campo">
-                    <label for="genero"><b>Genero</b></label>
-                    <div class="opciones">
-                        <input type="radio" name="genero" value="femenino" formControlName="genero">Femenino
-                        <input type="radio" name="genero" value="masculino" formControlName="genero">Masculino
-                        <input type="radio" name="genero" value="otro" formControlName="genero">Otro
-                    </div>
-                </div>
-            <div class="card-buttons">
-                <!--<button class="aceptar" (click)="aceptar()" [disabled]="signUpForm.invalid">Crear usuario</button>-->
-                <button class="cancelar" (click)="cancelar()">Cancelar</button>
-                <button class="pressed">Crear usuario</button>
-            </div>
-        </div>
-    </div>
-</div>
+                            <div class="errorEnValidacion" *ngIf="signUpForm.controls.name.errors.minlength">El nombre
+                                de usuario debe contener al menos 4 caracteres</div>
+                            </ng-container>
+                        </div>
+                        <div class="campo">
+                            <label for="name"><b>Apellidos</b></label>
+                            <input type="text" placeholder="Apellidos" name="surname" formControlName="surname">
+                            <ng-container *ngIf="signUpForm.controls.surname.errors != undefined">
+                                <div class="errorEnValidacion" *ngIf="signUpForm.controls.surname.errors.required">Este campo
+                                    no puede estar vacio</div>
+                                </ng-container>
+                            </div>
+                            <div class="campo">
+                                <label for="name"><b>DNI</b></label>
+                                <input type="text" placeholder="DNI" name="dni" formControlName="dni">
+                                <ng-container *ngIf="signUpForm.controls.dni.errors != undefined">
+                                    <div class="errorEnValidacion" *ngIf="signUpForm.controls.dni.errors.required">Este campo
+                                        no puede estar vacio</div>
+                                    </ng-container>
+                                </div>
+                                <div class="campo">
+                                    <label for="name"><b>Nick</b></label>
+                                    <input type="text" placeholder="Nick de Usuario" name="nick" formControlName="nick">
+                                    <ng-container *ngIf="signUpForm.controls.nick.errors != undefined">
+                                        <div class="errorEnValidacion" *ngIf="signUpForm.controls.nick.errors.required">Este campo
+                                            no puede estar vacio</div>
+                                        </ng-container>
+                                    </div>
+                                    <div class="campo">
+                                        <label for="password"><b>Contraseña</b></label>
+                                        <input type="password" placeholder="Contraseña" name="password" formControlName="password">
+                                        <ng-container *ngIf="signUpForm.controls.password.errors != undefined">
+                                            <div class="errorEnValidacion" *ngIf="signUpForm.controls.password.errors.required">Este campo no
+                                                puede estar vacio</div>
+                                                <div class="errorEnValidacion" *ngIf="signUpForm.controls.password.errors.minlength">La contraseña
+                                                    debe contener al menos 6 caracteres</div>
+                                                    <div class="errorEnValidacion" *ngIf="signUpForm.controls.password.errors.pattern">La contraseña
+                                                        debe contener mayúsculas y minúsculas</div>
+                                                    </ng-container>
+                                                </div>
+                                            </form>
+                                                <div class="card-buttons">
+                                                    <button class="aceptar" (click)="crearCustomer()" >Registrarse</button>
+                                                    <button class="cancelar" (click)="cancelar()">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>

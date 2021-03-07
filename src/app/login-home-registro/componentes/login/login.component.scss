@@ -5,15 +5,13 @@
 .main
 {
     @include centrar-contenido;
-    height: 110vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    background-color: transparentize($color: black, $amount: 0.75);
+        height: 80vh;
+        width: 97vw;
+        background-color: transparentize($color: black, $amount: 0.75);
 
     .content
     {
-        width: 75vw;
+        width: 60vw;
         background-color: white;
         border: solid 1px $colorCardBorder;
         border-radius: 20px;
@@ -23,16 +21,6 @@
         h1
         {
             font-size: 6vh;
-        }
-        .usuarioCreado
-        {
-            @include centrar-contenido;
-            margin: 0 -3vw;
-            height: 8vh;
-            border: solid 1px $colorCardBorder;
-            font-size: 3vh;
-            background-color: $colorBackgroundAvisos;
-            color: $colorTextoAvisos;
         }
         
         .campo
@@ -77,35 +65,39 @@
         
         .buttons
         {
-            width: 20%;
             display: flex;
-            flex-wrap: wrap;
-            margin-top: 3vh;
-            
-
-
-            .cancelar
-            {
-                background-color: $colorBotonCancelar;
-
-                &:hover
-                {
-                    background-color: $colorBotonCancelarHover;
-                    color: $colorTextoBotonHover;
-                }
-            }
-
+            justify-content: flex-end;
             
             button
             {
-                    @include basic-button;
-                    background-color: $colorBoton;
-                    font-size: 2.5vh;
-                    margin: 3vh 3vw;
+                @include basic-button;
+                font-size: 2vh;
+                margin: 3vh 1vw;    
+            }
+        
+            .aceptar
+            {
+                background-color: $colorBoton;
         
                 &:hover
                 {
                     background-color: $colorBotonHover;
+                }
+        
+                &:disabled
+                {
+                    background-color: $colorBotonDeshabilitado;
+                }
+            }
+        
+            .cancelar
+            {
+                background-color: $colorBotonCancelar;
+        
+                &:hover
+                {
+                    background-color: $colorBotonCancelarHover;
+                    color: $colorTextoBotonHover;
                 }
             }
         }

@@ -1,0 +1,15 @@
+<div class="productos">
+    <div class="card" *ngFor="let producto of productos">
+        <div class="card-header">
+            {{producto.nombre}}
+        </div>
+        <div class="card-content">
+            <p>Descripción: {{producto.descripcion}}</p>
+            <p>Precio: {{producto.precio}}</p>
+            <button class="pressed"(click)="anadirProducto()">Añadir</button>
+        </div>
+    </div>
+    <br>
+    <button class="pressed"(click)="Carrito()">Ir al Carrito</button> 
+    <button class="pressed"(click)="LogOut()">Salir de la web</button>
+</div>

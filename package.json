@@ -19,7 +19,10 @@
     "@angular/platform-browser": "~11.2.1",
     "@angular/platform-browser-dynamic": "~11.2.1",
     "@angular/router": "~11.2.1",
+    "angular-md5": "^0.1.10",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^10.15.5",
+    "ts-md5": "^1.2.7",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

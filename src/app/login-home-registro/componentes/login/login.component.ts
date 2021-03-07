@@ -1,9 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../../interfaces/userInterface';
-//import { AvisosService } from '../../../services/avisos.service';
-//import { LoginService } from '../../services/login.service';
-//import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { User } from '../../../interfaces/userInterface';
+import { LoginService } from '../../../services/login-registro.service'; 
+import { ErroresService } from '../../../services/errores.service';
 
 @Component({
   selector: 'app-user-login',
@@ -14,13 +13,13 @@ export class LoginComponent implements OnInit {
   
   user: User = null;
 
-  @Output() eventEmmiter: EventEmitter<null> = new EventEmitter<null>();
+  /**String error y Boolean para error usuario o contraseña incorrecta */
+  mensaje:string;
+  error:boolean = false;
 
-  constructor(//private loginService: LoginService,
+  constructor(private loginService: LoginService,
               private router: Router,
-              //public avisos: AvisosService,
-              //private tokenStorage: TokenStorageService
-              ) { }
+              private errorService: ErroresService) { }
 
   ngOnInit(): void 
   {
@@ -31,27 +30,33 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // aceptar()
-  // {
-  //   this.loginService.usuarioLogin(this.user).subscribe((res) =>
-  //     {
-  //       if(res != null && res != undefined)
-  //       {
-  //         this.router.navigate(['/signUp']);
-  //         this.tokenStorage.saveToken(res);
-  //         this.tokenStorage.saveUser(this.user);
-  //       }
-  //     });
-
-  // }
-
-  cancelar()
+  //Hace la peticion para logarse al back, si es correcta nos notifica y nos redirige, si no nos devuelve un error
+  aceptar()
   {
-    this.eventEmmiter.emit(null);
-    this.router.navigate(['/bienvenida']);
+    this.loginService.login(this.user.username, this.user.password).subscribe(data => {
+      if(data.mensaje != null){
+        this.mensaje = data.mensaje;
+        this.error = true;
+      }
+      else if (data != undefined) {
+        localStorage.clear();
+        localStorage.setItem('id', data.id);
+        if(localStorage.getItem("id") != ""){
+          this.errorService.LoginCorrecto('/productos')
+        }else{
+          localStorage.clear();
+        }
+      }
+    },
+    error => {
+      if(error != null){
+        this.errorService.ErrorInesperado()
+      }
+    })
+
   }
 
   home(){
-    this,this.router.navigate(['']);
+    this.router.navigate(['']);
   }
 }
