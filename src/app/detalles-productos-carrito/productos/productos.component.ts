@@ -13,6 +13,7 @@ export class ProductosComponent implements OnInit {
 
   productos: Producto[];
   productoSeleccionado: Producto;
+  public pa: number;
 
   constructor(private productoService: ProductoService, private router : Router) { }
 
