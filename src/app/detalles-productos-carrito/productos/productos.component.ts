@@ -12,6 +12,7 @@ export class ProductosComponent implements OnInit {
 
 
   productos: Producto[];
+  productoSeleccionado: Producto;
 
   constructor(private productoService: ProductoService, private router : Router) { }
 
@@ -33,8 +34,8 @@ export class ProductosComponent implements OnInit {
 
   }
 
-  anadirProducto(){
-    console.log('Hola');
+  anadirProducto(producto: Producto){
+    console.log(this.productoSeleccionado = producto);
   }
 
   Carrito(){

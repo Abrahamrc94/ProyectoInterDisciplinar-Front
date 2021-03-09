@@ -1,0 +1,23 @@
+h1
+{
+    background: $gradiente;
+    background-clip: text;
+    color: transparent;
+    font-size: 7vh;
+}
+
+
+
+.main
+{
+    @include centrar-contenido
+}
+
+.texto{
+
+    @include ajustar-texto
+}
+
+.imgHome{
+    width: 400px;
+}
