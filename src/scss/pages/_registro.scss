@@ -1,0 +1,11 @@
+.card-buttons{
+
+    //media para la distribución de los botones al cambio de resolución
+    @media screen and (max-width: 600px){
+            display: flex;
+            flex-direction: column;
+            font-size: 1.5vh;
+        }
+
+    
+}

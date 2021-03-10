@@ -6,8 +6,6 @@ h1
     font-size: 7vh;
 }
 
-
-
 .main
 {
     @include centrar-contenido
@@ -18,6 +16,28 @@ h1
     @include ajustar-texto
 }
 
+
 .imgHome{
-    width: 400px;
+    width: 350px;
+
+    //media para la imagen en tablet
+    @media screen and (min-width: 600px){
+        width: 500px;
+    }
+
+    //media para la imagen en escritorio
+    @media screen and (min-width: 1200px){
+        width: 800px;
+    }
 }
+
+
+.buttons{
+
+    //media para la disposición de los botones 
+    @media screen and (min-width: 600px){
+       flex-direction: row;
+    }
+
+}
+

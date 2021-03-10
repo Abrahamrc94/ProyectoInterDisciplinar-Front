@@ -36,7 +36,8 @@ export class ProductosComponent implements OnInit {
   }
 
   anadirProducto(producto: Producto){
-    console.log(this.productoSeleccionado = producto);
+    this.productoSeleccionado = producto
+    console.log(producto);
   }
 
   Carrito(){

@@ -1,23 +1,25 @@
-.pressed
-{
+.presse{
     outline: none;
     border: none;
     box-shadow: 0 4px $colorBotonHover;
 }
 
-.pressed:hover
-{
+.pressed:hover{
     box-shadow: 0 4px $colorSombraBoton;
 }
 
-.pressed:active
-{
+.pressed:active{
     box-shadow: 0 2px $colorSombraBoton;
     transform: translateY(2px);
 }
 
-.buttons
-{
+.cancelar{
+
+    background-color: $colorBotonCancelar;
+}
+
+
+.buttons{
     width: 40%;
     display: flex;
     flex-wrap: wrap;
@@ -25,18 +27,16 @@
     margin-top: 3vh;
 
     
-    button
-    {
-        @include basic-button;
-        background-color: $colorBoton;
-        color: $colorTextoBoton;
-        font-size: 2.5vh;
-        margin: 3vh 3vw;
+    button{
+            @include basic-button;
+            background-color: $colorBoton;
+            color: $colorTextoBoton;
+            font-size: 2.5vh;
+            margin: 3vh 3vw;
         
-        &:hover
-        {
-            background-color: $colorBotonHover;
-            color: $colorTextoBotonHover;
+            &:hover{
+                background-color: $colorBotonHover;
+                color: $colorTextoBotonHover;
+            }
         }
-    }
 }
