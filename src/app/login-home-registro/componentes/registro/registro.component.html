@@ -17,7 +17,7 @@
                             </ng-container>
                         </div>
                         <div class="campo">
-                            <label for="name"><b>Apellidos</b></label>
+                            <label for="surname"><b>Apellidos</b></label>
                             <input type="text" placeholder="Apellidos" name="surname" formControlName="surname">
                             <ng-container *ngIf="signUpForm.controls.surname.errors != undefined">
                                 <div class="errorEnValidacion" *ngIf="signUpForm.controls.surname.errors.required">Este campo
@@ -25,7 +25,7 @@
                                 </ng-container>
                             </div>
                             <div class="campo">
-                                <label for="name"><b>DNI</b></label>
+                                <label for="dni"><b>DNI</b></label>
                                 <input type="text" placeholder="DNI" name="dni" formControlName="dni">
                                 <ng-container *ngIf="signUpForm.controls.dni.errors != undefined">
                                     <div class="errorEnValidacion" *ngIf="signUpForm.controls.dni.errors.required">Este campo
@@ -33,7 +33,7 @@
                                     </ng-container>
                                 </div>
                                 <div class="campo">
-                                    <label for="name"><b>Nick</b></label>
+                                    <label for="nick"><b>Nick</b></label>
                                     <input type="text" placeholder="Nick de Usuario" name="nick" formControlName="nick">
                                     <ng-container *ngIf="signUpForm.controls.nick.errors != undefined">
                                         <div class="errorEnValidacion" *ngIf="signUpForm.controls.nick.errors.required">Este campo

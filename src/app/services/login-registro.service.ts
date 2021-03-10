@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable, Subject } from 'rxjs';
 import { Md5 } from 'ts-md5/dist/md5';
+import { User } from '../interfaces/userInterface';
 
 @Injectable({
     providedIn: 'root'
@@ -14,6 +15,7 @@ import { Md5 } from 'ts-md5/dist/md5';
     public loggedStatus = this.logStatusCustomer.asObservable();
     public url = '';
 
+    user: User={username:"", password:""}
     customer: Customer;
 
     constructor(private http: HttpClient) { }
@@ -25,6 +27,7 @@ import { Md5 } from 'ts-md5/dist/md5';
     const md5 = new Md5();
     const passMd5 = md5.appendStr(this.customer.password).end().toString();
     this.customer.password = passMd5;
+    console.log(this.customer);
     return this.http.post<Customer>(environment.signUpUrl, this.customer);
   }
 
@@ -34,7 +37,10 @@ import { Md5 } from 'ts-md5/dist/md5';
     const md5 = new Md5();
     const passMd5 = md5.appendStr(pass).end().toString();
 
-    return this.http.get(environment.loginUrl + '?username=' + nick + '&password=' + passMd5).pipe(
+    this.user.username=nick;
+    this.user.password=passMd5;
+
+    return this.http.post(environment.loginUrl, this.user).pipe(
       data => {
         return data;
       }
