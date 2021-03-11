@@ -34,14 +34,9 @@ export class LoginComponent implements OnInit {
   aceptar()
   {
     this.loginService.login(this.user.username, this.user.password).subscribe(data => {
-      if(data.mensaje != null){
-        this.mensaje = data.mensaje;
-        this.error = true;
-      }
-      else if (data != undefined) {
-        localStorage.clear();
-        localStorage.setItem('id', data.id);
-        if(localStorage.getItem("id") != ""){
+      if(data != undefined && data != null) {
+        localStorage.setItem('jwt', data.jwt);
+        if(localStorage.getItem("jwt") != ""){
           this.errorService.LoginCorrecto('/productos')
         }else{
           localStorage.clear();
