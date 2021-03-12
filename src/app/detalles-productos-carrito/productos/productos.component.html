@@ -1,11 +1,12 @@
 <div class="productos">
     <div class="card" *ngFor="let producto of productos | paginate: { itemsPerPage: 10, currentPage: pa }">
-        <ul>
-            <li>{{producto.nombre}}</li>
-            <li>Descripción: {{producto.descripcion}}</li>
-            <li>Precio: {{producto.precio}}</li>
-            <button class="pressed"(click)="anadirProducto()">Añadir</button>
-        </ul>
+        <h3> 
+            <a> {{producto.nombre}} </a>
+        </h3>
+            <p>Descripción: {{producto.descripcion}}</p>
+            <p>Precio: {{producto.precio}}</p>
+            <button class="pressed"(click)="anadirProducto(producto)">Añadir</button>
+ 
     </div>
     <pagination-controls (pageChange)="pa = $event"
         responsive="true"
@@ -14,5 +15,4 @@
     </pagination-controls>
     <br>
     <button class="pressed"(click)="Carrito()">Ir al Carrito</button> 
-    <button class="pressed"(click)="LogOut()">Salir de la web</button>
 </div>

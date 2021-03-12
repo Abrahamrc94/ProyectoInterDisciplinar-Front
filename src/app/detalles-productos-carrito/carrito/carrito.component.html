@@ -1,1 +1,15 @@
-<p>carrito works!</p>
+<div>
+    <h3>Carrito</h3>
+    <div class="card" *ngFor="let item of items">
+        <span>Nombre: {{item.nombre}}</span>
+        <br>
+        <span>Descripcion: {{item.descripcion}}</span>
+        <br>
+        <span>Precio: {{item.precio}}</span>
+    </div>
+    <form [formGroup]="pedidoForm"> 
+        <label for="username"><b>Dirección a la que se enviará el pedido</b></label>
+        <input type="text" required name="direccion" placeholder="Dirección">
+    </form>
+    <button class="pressed" (click)='RealizarPedido()'>Realizar Pedido</button>
+</div>

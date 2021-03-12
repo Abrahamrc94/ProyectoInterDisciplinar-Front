@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { RouteConfigLoadEnd } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 

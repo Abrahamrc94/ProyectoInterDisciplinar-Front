@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header/header.component';
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginHomeRegistroModule } from './login-home-registro/login-home-registro.module';
 import { DetallesProductosCarritoModule} from './detalles-productos-carrito/detalles-productos-carrito.module';
 
@@ -19,6 +20,8 @@ import { DetallesProductosCarritoModule} from './detalles-productos-carrito/deta
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     LoginHomeRegistroModule,
     DetallesProductosCarritoModule
   ],

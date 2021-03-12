@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import { Observable, Subject } from 'rxjs';
 import { Md5 } from 'ts-md5/dist/md5';
 import { User } from '../interfaces/userInterface';
+import jwt_decode  from 'jwt-decode';
 
 @Injectable({
     providedIn: 'root'
@@ -40,16 +41,12 @@ import { User } from '../interfaces/userInterface';
     this.user.username=nick;
     this.user.password=passMd5;
 
-    return this.http.post(environment.loginUrl, this.user).pipe(
-      data => {
-        return data;
-      }
-    )
+    return this.http.post(environment.loginUrl, this.user, { responseType: 'text'});
   }
 
-
+  //Se usa para saber si hay un usuario Logado o no para CanActivate
   isloggedIn(url: string){
-    const isLogged = localStorage.getItem('id');
+    const isLogged = localStorage.getItem('jwt');
 
     if(!isLogged){
       this.url = url
@@ -58,6 +55,23 @@ import { User } from '../interfaces/userInterface';
     return true;
   }
 
+  //Obtiene los datos del usuario actual
+  getUsuarioAutenticado(): Observable<Customer>{
+    return this.http.get<Customer>(environment.apiUrl + '/customer/' + localStorage.getItem('id'))
+  }
+
+  almacenaId(token: string){
+    const tokenDecodificado: any = jwt_decode(token);
+    localStorage.setItem('id', tokenDecodificado.sub);
+  }
+
+
+  /**Modifica un usuario según su id */
+  modificarUser(customer: any): Observable<any> {
+    let id = localStorage.getItem('id');
+
+    return this.http.put(environment.apiUrl + '/customer' + `/${id}`, customer);
+  }
 
 
 

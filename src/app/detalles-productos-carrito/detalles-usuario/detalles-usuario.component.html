@@ -1,0 +1,42 @@
+<div class="main">
+    <div class="card">
+        <div class="card-header">
+            <h2>Estos son tus datos</h2>
+        </div>
+        <div class="card-content">
+            <form [formGroup]="updateForm"> 
+
+                <div class="campo">
+                    <label for="name"><b>Nombre</b></label>
+                    <input type="text" placeholder="Nombre" name="name" formControlName="name">
+                    <ng-container *ngIf="updateForm.controls.name.errors != undefined">
+                        <div class="errorEnValidacion" *ngIf="updateForm.controls.name.errors.required">Este campo
+                            no puede estar vacio</div>
+                            <div class="errorEnValidacion" *ngIf="updateForm.controls.name.errors.minlength">El nombre
+                                de usuario debe contener al menos 4 caracteres</div>
+                            </ng-container>
+                        </div>
+                        <div class="campo">
+                            <label for="surname"><b>Apellidos</b></label>
+                            <input type="text" placeholder="Apellidos" name="surname" formControlName="surname">
+                            <ng-container *ngIf="updateForm.controls.surname.errors != undefined">
+                                <div class="errorEnValidacion" *ngIf="updateForm.controls.surname.errors.required">Este campo
+                                    no puede estar vacio</div>
+                                </ng-container>
+                            </div>
+                            <div class="campo">
+                                <label for="dni"><b>DNI</b></label>
+                                <input type="text" placeholder="DNI" name="dni" formControlName="dni">
+                                <ng-container *ngIf="updateForm.controls.dni.errors != undefined">
+                                    <div class="errorEnValidacion" *ngIf="updateForm.controls.dni.errors.required">Este campo
+                                        no puede estar vacio</div>
+                                    </ng-container>
+                                </div>
+                        </form>
+                        <div class="card-buttons">
+                            <button class="aceptar" (click)="UpdateCustomer()">Modificar Datos</button>
+                            <button class="cancelar" (click)="Volver()">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>

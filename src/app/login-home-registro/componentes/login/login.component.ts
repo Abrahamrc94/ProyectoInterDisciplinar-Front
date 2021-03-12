@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../../interfaces/userInterface';
-import { LoginService } from '../../../services/login-registro.service'; 
+import { LoginService } from '../../../services/customer.service'; 
 import { ErroresService } from '../../../services/errores.service';
 
 @Component({
@@ -33,9 +33,10 @@ export class LoginComponent implements OnInit {
   //Hace la peticion para logarse al back, si es correcta nos notifica y nos redirige, si no nos devuelve un error
   aceptar()
   {
-    this.loginService.login(this.user.username, this.user.password).subscribe(data => {
+    this.loginService.login(this.user.username, this.user.password).subscribe((data) => {
       if(data != undefined && data != null) {
-        localStorage.setItem('jwt', data.jwt);
+        localStorage.setItem('jwt', data);
+        this.loginService.almacenaId(data);
         if(localStorage.getItem("jwt") != ""){
           this.errorService.LoginCorrecto('/productos')
         }else{
@@ -51,6 +52,7 @@ export class LoginComponent implements OnInit {
 
   }
 
+  //Nos redirecciona al home
   home(){
     this.router.navigate(['']);
   }

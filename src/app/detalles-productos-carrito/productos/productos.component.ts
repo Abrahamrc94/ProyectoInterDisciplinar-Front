@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../../services/producto.service';
 import { Producto } from '../../interfaces/prodcutoInterface';
 import { Router } from '@angular/router';
+import { CarritoService } from '../../services/carrito.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productos',
@@ -15,7 +17,7 @@ export class ProductosComponent implements OnInit {
   productoSeleccionado: Producto;
   public pa: number;
 
-  constructor(private productoService: ProductoService, private router : Router) { }
+  constructor(private productoService: ProductoService, private router : Router, private cartService: CarritoService) { }
 
 
 
@@ -35,17 +37,12 @@ export class ProductosComponent implements OnInit {
 
   }
 
-  anadirProducto(producto: Producto){
-    this.productoSeleccionado = producto
-    console.log(producto);
+  anadirProducto(producto){
+    this.cartService.addToCart(producto);
+    Swal.fire('Producto añadido al carrito')
   }
 
   Carrito(){
     this.router.navigate(['/carrito'])
-  }
-
-  LogOut(){
-    localStorage.clear();
-    this.router.navigate(['']);
   }
 }
