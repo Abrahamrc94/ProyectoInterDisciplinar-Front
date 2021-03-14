@@ -45,4 +45,9 @@ export class ProductosComponent implements OnInit {
   Carrito(){
     this.router.navigate(['/carrito'])
   }
+
+
+  Inicio(){
+    this.router.navigate([''])
+  }
 }

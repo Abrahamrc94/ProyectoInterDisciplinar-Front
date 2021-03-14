@@ -20,6 +20,7 @@ button
     {
         width: 30vw;
         margin: 2vh 3vw;
+
     }
 
     @media screen and (min-width: 1200px)
@@ -46,7 +47,7 @@ button
 {
     @include basic-button;
     font-size: 1.8vh;
-    background-color: $colorBoton;
+    background-color: $colorBotonHeader;
     height: 5vh;
     margin: 0 2vw;
 }
@@ -98,7 +99,7 @@ button
     margin: 1vh 2vw;
 }
 
-.buttonsReceta
+.buttonsProducto
 {
     button
     {

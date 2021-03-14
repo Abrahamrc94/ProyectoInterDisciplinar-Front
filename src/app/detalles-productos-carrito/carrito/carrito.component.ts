@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarritoService } from '../../services/carrito.service';
 import { Pedido } from '../../interfaces/pedidoInterface';
+import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
@@ -18,7 +19,7 @@ export class CarritoComponent implements OnInit {
 
   total: number;
 
-  constructor(private cartService: CarritoService) { }
+  constructor(private cartService: CarritoService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -38,10 +39,14 @@ RealizarPedido(){
   this.pedido.total=this.total;
   this.pedido.productos=this.items;
 
-  this.cartService.RealizarPedido(this.pedido);
+  //this.cartService.RealizarPedido(this.pedido);
 
 }
 
+Volver(){
+  this.router.navigate(['/productos'])
+  }
 }
+
 
 

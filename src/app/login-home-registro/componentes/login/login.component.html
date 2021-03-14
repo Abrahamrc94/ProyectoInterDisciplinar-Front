@@ -1,8 +1,7 @@
-<div class="main">
-  <div class="content">
+<div class="main login">
+  <div class="loginContent main">
       <h1>Accede</h1>
-      <form #loginForm="ngForm" (ngSubmit)="aceptar()"> 
-
+      <form class="loginForm" #loginForm="ngForm" (ngSubmit)="aceptar()"> 
         <div class="campo">
           <label for="username"><b>Nombre de usuario</b></label>
           <input type="text" required name="username" placeholder="Nombre de usuario"
@@ -19,7 +18,7 @@
           La contraseña es obligatoria
         </div>
       </div>
-      <div class="buttons">
+      <div class="loginButtons">
         <button class="aceptar" (click)="aceptar()">Iniciar Sesion</button>
         <button class="cancelar" (click)="home()">Cancelar</button>
       </div>

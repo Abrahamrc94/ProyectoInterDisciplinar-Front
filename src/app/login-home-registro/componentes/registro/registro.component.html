@@ -4,7 +4,7 @@
             <h2>Introduce tus datos</h2>
         </div>
         <div class="card-content">
-            <form [formGroup]="signUpForm"> 
+            <form class="signupForm" [formGroup]="signUpForm"> 
 
                 <div class="campo">
                     <label for="name"><b>Nombre</b></label>
@@ -54,7 +54,7 @@
                                                 </div>
                                             </form>
                                                 <div class="card-buttons">
-                                                    <button class="aceptar" (click)="crearCustomer()" >Registrarse</button>
+                                                    <button class="aceptar" (click)="crearCustomer()">Registrarse</button>
                                                     <button class="cancelar" (click)="cancelar()">Cancelar</button>
                                                 </div>
                                             </div>
